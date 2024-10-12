@@ -23,16 +23,9 @@ Top UP
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Date</label>
                               <input type="text" class="form-control" value="20230408" id="exampleInputEmail" aria-describedby="emailHelp">
-                              <div id="" class="form-text">Enter contact agreements below</div>
+                              <div id="" class="form-text">Enter name from agreements below</div>
                             </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Terms</label>
-                              <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                              <label for="exampleInputPassword1" class="form-label">Username</label>
-                              <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
+                            
                             
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
@@ -44,9 +37,3 @@ Top UP
         </div>
     </div>
 </div>
-transaction = contract.functions.addUser(user_number, user_name, user_about_me).build_transaction({
-    'from': wal,
-    'nonce': web3.eth.get_transaction_count(account.address),
-    'gas': 100000, 
-    'gasPrice': web3.eth.gas_price
-})
