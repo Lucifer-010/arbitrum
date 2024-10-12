@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from web3 import Web3
+from django.http import JsonResponse
 import json
 
  
@@ -126,5 +127,17 @@ def home(request):
     return render(request,"home.html",{})
 
 
-def getinfo(request):
-    pass
+@csrf_exempt
+def process_input(request):
+    if request.method == 'POST':
+        # Get input data from the request body
+        input_data = request.POST.get('input_field')
+
+        # Process the input data
+        #result = process_data(input_data)  # Replace with your processing logic
+        getlog(input_data)
+
+        # Return a JSON response
+        return JsonResponse({'result': result})
+
+    return render(request, 'template.html')
