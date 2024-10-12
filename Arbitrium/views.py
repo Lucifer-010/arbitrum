@@ -4,6 +4,7 @@ from django.shortcuts import render
 from web3 import Web3
 from django.http import JsonResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
 
  
 test_url = "https://sepolia.infura.io/v3/123b94b1cd8d4664be0b8c2334766d16"
