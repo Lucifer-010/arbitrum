@@ -26,4 +26,5 @@ from django.conf.urls import handler500,handler404
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.home,name="home"),
+    path("process_input/",views.process_input,name="process_input"),
 ]

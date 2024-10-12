@@ -135,7 +135,7 @@ def process_input(request):
 
         # Process the input data
         #result = process_data(input_data)  # Replace with your processing logic
-        getlog(input_data)
+        result = getlog(input_data)
 
         # Return a JSON response
         return JsonResponse({'result': result})

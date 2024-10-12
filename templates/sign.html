@@ -18,11 +18,11 @@ Top UP
             <div class="modal-body">
                 <div class="card text-left card- ">
                     <div class="card-body">
-                        <form action='' method=POST class="">{%csrf_token%}
+                        <form action='' method=POST id="input-form" class="">{%csrf_token%}
                         
                             <div class="mb-3">
                               <label for="exampleInputEmail1" class="form-label">Date</label>
-                              <input type="text" class="form-control" value="20230408" id="exampleInputEmail" aria-describedby="emailHelp">
+                              <input type="text" class="form-control" name="input_field" id="input_field" aria-describedby="emailHelp">
                               <div id="" class="form-text">Enter name from agreements below</div>
                             </div>
                             
@@ -37,3 +37,30 @@ Top UP
         </div>
     </div>
 </div>
+<script>
+    const form = document.getElementById('input-form');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();   
+
+
+        const inputValue = document.getElementById('input_field').value;
+
+        fetch('/process_input/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                input_field: inputValue
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.result);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
