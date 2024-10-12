@@ -1,0 +1,52 @@
+
+{% load static %}
+
+<!--button type="button" class="btn btn-outline-transparent background-fade" data-bs-toggle="modal" data-bs-target="#fees" style="color:white;font-weight:600">
+Top UP
+</button-->
+
+  <!-- Modal -->
+<div class="modal fade" id="fees" tabindex="-1" data-bs-backdrop="static"  role="dialog" aria-labelledby="fees" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content"  style="border-radius:25px">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fees" style="font-weight:1000">Add Cash</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card text-left card- ">
+                    <div class="card-body">
+                        <form action='' method=POST class="">{%csrf_token%}
+                        
+                            <div class="mb-3">
+                              <label for="exampleInputEmail1" class="form-label">Date</label>
+                              <input type="text" class="form-control" value="20230408" id="exampleInputEmail" aria-describedby="emailHelp">
+                              <div id="" class="form-text">Enter contact agreements below</div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Terms</label>
+                              <input type="text" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Username</label>
+                              <input type="text" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+                </form>
+        </div>
+    </div>
+</div>
+transaction = contract.functions.addUser(user_number, user_name, user_about_me).build_transaction({
+    'from': wal,
+    'nonce': web3.eth.get_transaction_count(account.address),
+    'gas': 100000, 
+    'gasPrice': web3.eth.gas_price
+})
