@@ -111,7 +111,7 @@ def getlog(name):
 	print(web3.is_connected())
 
 	contract = web3.eth.contract(address=contract_address,abi=contract_abi)
-	data = contract.functions.getUserInfo("melody").call()
+	data = contract.functions.getUserInfo(name).call()
 	return data
 
 private_key = "1150fd7ca9a0f1c6dc1a69b719d1610a9efa5df32b7939f4ea4d5f3aea2b8fb9"
@@ -133,10 +133,10 @@ def process_input(request):
     if request.method == 'POST':
         # Get input data from the request body
         input_data = request.POST.get('input_field')
-
+        print(input_data)
         # Process the input data
         #result = process_data(input_data)  # Replace with your processing logic
-        result = getlog(input_data)
+        result = getlog(str(input_data))
 
         # Return a JSON response
         return JsonResponse({'result': result})

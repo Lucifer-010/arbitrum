@@ -27,4 +27,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.home,name="home"),
     path("process_input/",views.process_input,name="process_input"),
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
